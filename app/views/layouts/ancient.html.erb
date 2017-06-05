@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="icon" href="../../favicon.ico">
+    <title>昔阳县国税局税收风险控制分析管理系统</title>
+    <!-- Bootstrap core CSS -->
+    <%= stylesheet_link_tag  'ancient', media: 'all' %>
+     <%= javascript_include_tag 'application' %>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">国税风控系统后台</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">欢迎您：<%=current_user.name%></a>
+            </li>
+            <li><a href="#">退出</a></li>
+            <li><a href="#">返回首页</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active tc"><%=link_to '文章管理', ancient_articles_path %></li>
+            <li class="tc"><a href="#">单位管理</a></li>
+            <li class="tc"><a href="#">角色管理</a></li>
+            <li class="tc"><a href="">用户管理</a></li>
+            <li class="tc"><a href="">权限管理</a></li>
+            <li>
+              <a href="#userMeun" class="nav-header menu-first collapsed tc" data-toggle="collapse">用户管理<span class="glyphicon glyphicon-menu-down ml5" aria-hidden="true"></span></a>
+              <ul id="userMeun" class="nav nav-list collapse menu-second">
+                <li><a href="#"><i class="icon-user"></i> 增加用户</a></li>
+                <li><a href="#"><i class="icon-edit"></i> 修改用户</a></li>
+                <li><a href="#"><i class="icon-trash"></i> 删除用户</a></li>
+                <li><a href="#"><i class="icon-list"></i> 用户列表</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <%=yield%>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

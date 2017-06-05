@@ -1,0 +1,16 @@
+<div class="container">
+  <%= form_tag sessions_path, method: :post, class: "form-signin" do %>
+    <h2 class="form-signin-heading" style="color:white">用户登陆</h2>
+    <label for="inputEmail" class="sr-only">登录名</label>
+      <%= text_field_tag :email, nil, class: "form-control", placeholder: "请填写登陆名" %>
+    <label for="inputPassword" class="sr-only">密码</label>
+      <%= password_field_tag :password, nil, class: "form-control", placeholder: "请填写密码" %>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"><span class="white"> 记住用户名密码</span>
+      </label>
+    </div>
+    <%=submit_tag  '登陆' , class: 'btn btn-lg btn-primary btn-block'%>
+  <%end%>
+</div> <!-- /container -->
+
