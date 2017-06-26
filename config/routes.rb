@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  #   mount UeditorRails::Engine => '/ueditor'
-  # post 'ueditor/file', :to => 'ueditor/assets#file'
-  # post 'ueditor/image', :to => 'ueditor/assets#image'
+  mount UeditorRails::Engine => '/ueditor'
+  post 'ueditor/file', :to => 'ueditor/assets#file'
+  post 'ueditor/image', :to => 'ueditor/assets#image'
+
    root 'home#index'
 
   resources :sessions

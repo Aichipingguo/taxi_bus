@@ -13,6 +13,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 #gem 'therubyracer', platforms: :ruby
+#for assets
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+gem 'nested_form', '0.3.2'
+gem 'imgkit'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -36,9 +42,20 @@ gem 'ransack', '1.5.1'
 
 gem 'kaminari', '0.16.1'
 
-#gem 'ueditor_rails4', "0.0.5"
+gem 'ueditor_rails4'
 
 gem 'settingslogic', '~> 2.0.9'
+
+
+
+
+#上传
+gem 'carrierwave', '0.10.0'
+gem 'mini_magick', '4.0.0'
+
+# 默认值
+gem "default_value_for", "3.0.0.1"
+
 
 
 gem 'sorcery'
