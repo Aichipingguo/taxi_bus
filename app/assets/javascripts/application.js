@@ -1,5 +1,3 @@
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require bootstrap-sprockets
-//= require ./ueditor_config
+// require ./ueditor_config

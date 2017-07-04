@@ -42,7 +42,7 @@ gem 'ransack', '1.5.1'
 
 gem 'kaminari', '0.16.1'
 
-gem 'ueditor_rails4'
+#gem 'ueditor_rails4'
 
 gem 'settingslogic', '~> 2.0.9'
 

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  mount UeditorRails::Engine => '/ueditor'
-  post 'ueditor/file', :to => 'ueditor/assets#file'
-  post 'ueditor/image', :to => 'ueditor/assets#image'
+  # mount UeditorRails::Engine => '/ueditor'
+  # post 'ueditor/file', :to => 'ueditor/assets#file'
+  # post 'ueditor/image', :to => 'ueditor/assets#image'
 
    root 'home#index'
 
