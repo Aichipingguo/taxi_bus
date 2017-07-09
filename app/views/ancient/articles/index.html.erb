@@ -1,32 +1,40 @@
-<h3 class="sub-header">文章列表</h3>
- <div class="pull-right page-header">
-    <%= link_to "新建文章", new_ancient_article_path, class: "btn btn-primary" %>
-</div>
-<div class="table">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>序号</th>
-          <th>文章名称</th>
-          <th>文章分类</th>
-          <th>文章摘要</th>
-          <th>发布人</th>
-          <th>发布时间</th>
-          <th>操作</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @articles.each do |article|%>
-        <tr>
-          <td></td>
-          <td><%=article.try(:name)%></td>
-          <td><%=article.art_catalog.try(:name)%></td>
-          <td><%=article.try(:abstract)%></td>
-          <td><%=article.user.try(:name)%></td>
-          <td><%=article.try(:publish_time)%></td>
-          <td></td>
-        </tr>
-      <%end%>
-      </tbody>
-    </table>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>文章列表</h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+           <tr>
+            <th></th>
+            <th>项目</th>
+            <th>进度</th>
+            <th>任务</th>
+            <th>日期</th>
+            <th>操作</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td><input type="checkbox" checked class="i-checks" name="input[]"></td>
+            <td>米莫说｜MiMO Show</td>
+            <td><span class="pie">0.52/1.561</span></td>
+            <td>20%</td>
+            <td>2014.11.11</td>
+            <td><a href="table_basic.html#"><i class="fa fa-check text-navy"></i></a></td>
+           </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
