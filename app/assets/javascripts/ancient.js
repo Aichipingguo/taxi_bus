@@ -1,5 +1,5 @@
 //= require common
-//= require bootstrap-sprockets
+// require bootstrap-sprockets
 //= require bootstrap.min
 //= require metismenu
 //= require jquery.slimscroll.min
