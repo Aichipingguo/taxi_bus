@@ -1,5 +1,4 @@
 class  Ancient::BaseController < ApplicationController
-   layout  'ancient'
-
+  layout  'ancient'
   before_action :auth_user
 end
