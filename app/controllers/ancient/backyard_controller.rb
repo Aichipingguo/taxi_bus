@@ -1,4 +1,4 @@
-class Ancient::BackyardController <  Ancient::BaseController
+class Ancient::BackyardController <  BaseController
 
   def index
   end

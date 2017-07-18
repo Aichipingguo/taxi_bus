@@ -14,7 +14,12 @@ Rails.application.routes.draw do
   namespace :ancient  do
     get '/' => 'backyard#welcome'
     get 'index' => 'backyard#index'
-    resources :articles
+    resources :articles do
+      collection do
+        get :art_catalog_index
+      end
+    end
+
   end
 
 

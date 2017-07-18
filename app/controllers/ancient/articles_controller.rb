@@ -1,7 +1,8 @@
-class Ancient::ArticlesController <  Ancient::BaseController
+class Ancient::ArticlesController <  BaseController
 
   def index
-    @articles = Article.all
+    @q = Article.ransack(params[:q])
+    @articles =  @q.result.page(params[:page]).per(10)
   end
 
   def new

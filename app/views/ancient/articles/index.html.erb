@@ -1,56 +1,36 @@
 <div class="ibox">
   <div class="ibox-title">
-    <h5>文章管理 </h5>
+    <h5>文章管理</h5>
   </div>
   <div class="ibox-content">
-    <%#= form_for @q, :url => ancient_stand_catalog_stand_params_path(@stand_catalog), :html => {:method => :get, :class => "well form-search"}  do |f| %>
-    <span>名称：<%#= f.text_field :name_cont %></span>
-      <span>是否关键：<%#= f.select :is_key_eq, [['是', 1],['否', 0]], include_blank: '不限' %></span>
-      <%#= render "ancient/shared/search_bottom", :f => f %>
-    <%# end %>
-
-    <%#= form_tag delete_all_ancient_stand_catalog_stand_params_path(@stand_catalog), data: { confirm: '確定要刪除所选吗?' } do %>
-      <%#= link_to "新建", new_ancient_stand_catalog_stand_param_path(@stand_catalog, back: request.fullpath) , class: "btn btn-primary btn-sm"%>
-      <table class="table table-bordered table-hover mt15">
-        <thead>
-          <tr>
-            <th>
-              <%#= check_box_tag "check_box_all", "", false %>
-            </th>
-            <th>序号</th>
-            <th>名称</th>
-            <th>是否关键参数</th>
-            <th>描述</th>
-            <th>名称字典</th>
-            <th>参数值</th>
-            <!-- <th>参数转换(分隔符 <span class='red'>|</span> )</th> -->
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%#@stand_params.each_with_index do |stand_param,index| %>
-          <tr>
-            <td class="tc">
-              <%#= check_box_tag 'product_ids[]', stand_param.id, false, :class => "check_box_item" %>
-            </td>
-            <td class="tc"><%#= index_no(index, @stand_params.limit_value) %></td>
-            <td class='tc'><%#= stand_param.name %></td>
-            <td class='tc'><span class="<%#= 'red' if stand_param.is_key  %>"><%#= stand_param.is_key ? "是" : "否" %></td>
-            <td class='tc'><%#= stand_param.desc %></td>
-            <td class='tc'><%#= stand_param.dict %></td>
-            <td class='tc' width='24%'>
-              <b class="item_size tip_click" title="参数值"><%#= stand_param.contents.count %></b>
-            </td>
-            <!-- <td class="tc"><%#= stand_param.tras.join('</br>').html_safe%></td> -->
-            <td class='tc'>
-               <%#= link_to "修改", edit_ancient_stand_catalog_stand_param_path(@stand_catalog, stand_param, back: request.fullpath) %>
-               <%#= link_to "删除",ancient_stand_catalog_stand_param_path(@stand_catalog, stand_param) , :method => :delete, data: { confirm: '確定要刪除吗?' }%>
-            </td>
-          </tr>
-          <%# end %>
-        </tbody>
-      </table>
-      <%#= paginate @stand_params %>
-    <%#end %>
+    <%= render "search" %>
+    <div class="page-header">
+      <%= link_to '新增文章', new_ancient_article_path(:back => request.fullpath), :class => "btn btn-sm btn-primary" %>
+    </div>
+    <table class="table table-bordered table-striped table-hover">
+      <tr>
+        <th class="tc">序号</th>
+        <th class="tc">文章名称</th>
+        <th class="tc">文章分类</th>
+        <th class="tc">发布人</th>
+        <th class="tc">发布时间</th>
+        <th class="tc">操作</th>
+      </tr>
+      <% @articles.each_with_index do |article, index| %>
+        <tr>
+          <td class="textc"><%= index + 1%></td>
+          <td><%= article.name %></td>
+          <td><%= article.catalog.name %></td>
+          <td><%= article.user_name %></td>
+          <td><%= article.created_at %></td>
+          <td class="tc">
+            <% edit_link = link_to '修改', edit_ancient_article_path(article, :back => request.fullpath)%>
+            <% destroy_link = link_to '删除', ancient_article_path(article, :back => request.fullpath), :method => :delete, data: { confirm: '確定要刪除吗?' }%>
+            <%= operate_buttons([edit_link, destroy_link].compact) %>
+          </td>
+        </tr>
+      <% end -%>
+    </table>
+    <%= paginate @articles %>
   </div>
 </div>
